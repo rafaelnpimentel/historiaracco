@@ -1,0 +1,330 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+
+:root {
+    --cinza-racco: #3c3c3b;
+    --amarelo-racco: #ffde14;
+    --branco-racco: #ffffff;
+    --gutter-left: 10vw;
+}
+
+
+body {
+    color: var(--branco-racco);
+    background: var(--cinza-racco);
+}
+
+.timeline {
+    display: grid;
+    grid-template-columns: 220px 50px 20px ; /* main-buttons | linha | subgroups | contents */
+    gap: 1rem;
+    align-items: start;
+    padding: 8rem 2rem;
+    padding-left: var(--gutter-left);
+    background: transparent; /* body now provides the full-bleed background */
+    min-height: 80vh;
+    width: 100%;
+}
+
+/* removed duplicate timeline full-bleed block; body provides the full background */
+
+.titulo {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.25rem;
+    font-weight: bold;
+    background-color: var(--cinza-racco);
+    padding-top: 6.375rem;
+    padding-left: var(--gutter-left);
+}
+
+
+/* Botões de seleção de período */
+.main-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    margin-right: 6%;
+    margin-left: 0; /* aligned via timeline padding-left */
+}
+
+.titulo-periodo {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--branco-racco);
+    cursor: pointer;
+}
+
+.titulo-periodo:hover {
+    color: var(--amarelo-racco);
+}
+
+.titulo-ano {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--branco-racco);
+    cursor: pointer;
+}
+
+.titulo-ano:hover {
+    font-weight: bold;
+    font-size: 2.25rem;
+}
+
+/* estado quando o radio relacionado estiver checked (período) */
+#a:checked ~ .main-buttons .titulo-periodo[for="a"],
+#b:checked ~ .main-buttons .titulo-periodo[for="b"],
+#c:checked ~ .main-buttons .titulo-periodo[for="c"] {
+    color: var(--amarelo-racco);
+}
+
+/* estado quando o radio de ano estiver checked (usa sibling selectors para alcançar o label dentro do subgroup) */
+#a1978:checked ~ .subgroup-a label[for="a1978"],
+#a1980:checked ~ .subgroup-a label[for="a1980"],
+#a1998:checked ~ .subgroup-a label[for="a1998"],
+#a2000:checked ~ .subgroup-a label[for="a2000"],
+#a2001:checked ~ .subgroup-a label[for="a2001"],
+#a2003:checked ~ .subgroup-a label[for="a2003"],
+#b2014:checked ~ .subgroup-b label[for="b2014"],
+#b2018:checked ~ .subgroup-b label[for="b2018"],
+#c2021:checked ~ .subgroup-c label[for="c2021"],
+#c2023:checked ~ .subgroup-c label[for="c2023"],
+#c2024:checked ~ .subgroup-c label[for="c2024"],
+#c2025:checked ~ .subgroup-c label[for="c2025"] {
+        color: var(--amarelo-racco);
+        font-weight: bold;
+}
+
+/* Esconder os botões de rádio */
+input[type="radio"] {
+    display: none;
+}
+
+/* Estilos para o conteúdo */
+.content {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    position: relative;
+    width: auto;
+    height: auto; /* allow content to expand, prevents text clipping */
+    padding-right: 8vw;
+}
+
+.text-conteudo {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding-left: 10%;
+}
+
+@media (min-width: 900px) {
+    .text-conteudo {    width:25vw;
+    }}
+
+.subgroup-a, .subgroup-b, .subgroup-c {
+    display: none;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Cada .conteudo contém várias .content — escondemos por padrão e o CSS :checked mostrará o correto */
+.conteudo {
+    display: none; /* cada grupo de conteúdos por período */
+}
+
+.conteudo > .content {
+    display: none;
+    width: auto;
+}
+
+/* Mostrar o subgrupo conforme radio de período selecionado */
+#a:checked ~ .subgroup-a,
+#b:checked ~ .subgroup-b,
+#c:checked ~ .subgroup-c {
+    display: flex;
+}
+
+/* Mostrar a coluna de conteúdos do período selecionado */
+#a:checked ~ .contents .conteudo[data-group="a"],
+#b:checked ~ .contents .conteudo[data-group="b"],
+#c:checked ~ .contents .conteudo[data-group="c"] {
+    display: block;
+}
+
+/* Mostrar o conteúdo do ano correspondente quando o input do ano estiver marcado */
+#a1978:checked ~ .contents #content-a1978,
+#a1980:checked ~ .contents #content-a1980,
+#a1998:checked ~ .contents #content-a1998,
+#a2000:checked ~ .contents #content-a2000,
+#a2001:checked ~ .contents #content-a2001,
+#a2003:checked ~ .contents #content-a2003,
+#b2014:checked ~ .contents #content-b2014,
+#b2018:checked ~ .contents #content-b2018,
+#c2021:checked ~ .contents #content-c2021,
+#c2023:checked ~ .contents #content-c2023,
+#c2024:checked ~ .contents #content-c2024,
+#c2025:checked ~ .contents #content-c2025 {
+    display: flex;
+}
+
+/* Garantir que imagens mantenham a proporção original */
+img {
+  display: block;        /* evita espaços indesejados abaixo da imagem */
+    /* altura máxima */
+  height: auto;          /* mantém proporção */
+  width: auto;           /* deixa o navegador ajustar a largura */
+  object-fit: contain;   /* garante que a imagem inteira apareça */
+}
+
+.ractecsvg {
+  display: block;        
+  height: auto;          
+  width: auto;           
+  object-fit: contain;
+  max-width: 40%; 
+  justify-self: start;
+}
+
+/* Alinhar os conteúdos ao topo dos main-buttons e subgroups */
+.main-buttons {
+    grid-column: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    z-index: 2;
+}
+
+.subgroup-a, .subgroup-b, .subgroup-c {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    grid-column: 3 / 4;
+}
+
+.contents {
+    grid-column: 4 / 5;
+}
+
+/* Linha vertical central entre main-buttons e subgroups */
+.linha {
+    grid-column: 2 / 3;
+    justify-self: center;
+    width: 2px;
+    background: var(--amarelo-racco);
+    height: 25vh;
+    margin-top: 2rem;
+    position: relative;
+    border-radius: 10px;
+}
+
+/* bolinha indicadora; posicionada com top ajustado por checks */
+.linha::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background: var(--amarelo-racco);
+    border-radius: 50%;
+    top: 0; /* default */
+}
+
+/* Posicionamento da bolinha conforme qual período estiver checked (usa grid rows para manter responsivo) */
+#a:checked ~ .linha::before { top: 1.5rem; }
+#b:checked ~ .linha::before { top: 7rem; }
+#c:checked ~ .linha::before { top: 12rem; }
+
+
+@media (max-width: 1500px) {
+.content {
+    flex-direction: column;
+    justify-content: flex-end;
+    max-width: 25vw;
+    margin-left:10vw ;
+    padding-right: 0%;
+    margin-right: 0%
+}
+img {
+    margin-left: 10%;
+}
+.text-conteudo {
+    padding-left: 0%;
+    padding-right: 0%;
+    }}
+
+/* Layout responsivo - ajustes por breakpoints */
+@media (max-width: 900px) {
+    .titulo {
+        margin-left: 3rem;
+    }
+    /* switch to single-column stacked flow for <=900px */
+    .timeline { grid-template-columns: 1fr; grid-auto-rows: auto; padding: 2rem 1.25rem; padding-left: 4rem; }
+
+    /* main-buttons horizontally */
+    .main-buttons { grid-column: 1 / -1; flex-direction: row; gap: 2rem; justify-content: flex-start; font-size: 0.875rem; }
+
+    /* linha horizontal under main-buttons */
+    .linha { display:none; width: 100%; height: 2px; margin: 0.75rem 0; background: var(--amarelo-racco)}
+    .linha::before { position: absolute; top: -6px; }
+
+    /* show the subgroup (years) under the line as a horizontal list */
+    .subgroup-a, .subgroup-b, .subgroup-c { grid-column: 1 / -1; display: none; flex-direction: row; gap: 0.5rem; justify-content: space-evenly; margin-left: -9vw; }
+    #a:checked ~ .subgroup-a,
+    #b:checked ~ .subgroup-b,
+    #c:checked ~ .subgroup-c { display: flex; }
+
+    /* contents stacked (text above image) */
+    .contents { grid-column: 1 / -1; }
+    /* keep .conteudo visibility controlled by :checked selectors so only the active period shows */
+    .contents .conteudo .content { flex-direction: column; align-items: stretch; }
+    .contents .conteudo .content img { order: 2; width: 100%; height: auto; margin-top: 0rem; }
+    .contents .conteudo .content p { order: 1; }
+
+    /* adjust indicator dot positions to horizontal percentages */
+    #a:checked ~ .linha::before { left: 10%; }
+    #b:checked ~ .linha::before { left: 50%; }
+    #c:checked ~ .linha::before { left: 90%; }
+
+    .content {
+        max-width: 90%;
+        margin-left: 0;
+        padding-right: 0;
+    }
+
+    /* avoid title/text clipping on smaller screens */
+    .titulo { padding-top: 1.5rem; padding-left: 1rem; font-size: 1.75rem; }
+    .text-conteudo { padding-left: 0rem; padding-right: 0rem; }
+}
+
+@media (max-width: 600px) {
+    .timeline { grid-template-columns: 1fr; grid-auto-rows: auto; padding: 1.5rem; }
+    .main-buttons { grid-column: 1 / -1; flex-direction: row; gap: 0.75rem; }
+    .linha { grid-column: 1 / -1; width: 100%; height: 2px; margin-top: 1rem; }
+    .linha::before { left: 0; transform: translateX(0); }
+    /* mover bolinha horizontalmente quando em mobile */
+    #a:checked ~ .linha::before { left: 8%; }
+    #b:checked ~ .linha::before { left: 50%; }
+    #c:checked ~ .linha::before { left: 92%; }
+    /* keep subgroups hidden by default and show only the checked one via the existing :checked rules */
+    .subgroup-a, .subgroup-b, .subgroup-c { grid-column: 1 / -1; display: none; }
+    .contents { grid-column: 1 / -1; }
+
+    /* title and text adjustments to avoid clipping */
+    .titulo { padding-top: 1rem; padding-left: 0.75rem; font-size: 1.5rem; }
+    .text-conteudo { padding-left: 0.5rem; padding-right: 0.5rem; }
+    .titulo-periodo, .titulo-ano { font-size: 1rem; }
+
+.container-timeline {
+    overflow-x: hidden;
+    align-content: center;
+    justify-content: center;
+    border: #ffde14 solid 2px;
+}}

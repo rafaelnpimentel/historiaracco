@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="Ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História do Grupo Racco</title>
+    <link rel="stylesheet" href="style.css">   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+        <h1 class="titulo">Nossa História</h1>
+    <section class="timeline">
+   
+
+  <!-- Grupo principal -->
+  <!-- radios de período: inputs foram colocados aqui como irmãos dos subgrupos para permitir seletores CSS :checked ~ -->
+  <input type="radio" name="periodo" id="a" checked>
+  <input type="radio" name="periodo" id="b">
+  <input type="radio" name="periodo" id="c">
+
+  <!-- radios de ano (movidos para cá para que possam controlar a coluna .contents via CSS) -->
+  <input type="radio" name="anoA" id="a1978" checked>
+  <input type="radio" name="anoA" id="a1980">
+  <input type="radio" name="anoA" id="a1998">
+  <input type="radio" name="anoA" id="a2000">
+  <input type="radio" name="anoA" id="a2001">
+  <input type="radio" name="anoA" id="a2003">
+
+  <input type="radio" name="anoB" id="b2014" checked>
+  <input type="radio" name="anoB" id="b2018">
+
+  <input type="radio" name="anoC" id="c2021" checked>
+  <input type="radio" name="anoC" id="c2023">
+  <input type="radio" name="anoC" id="c2024">
+  <input type="radio" name="anoC" id="c2025">
+
+  <div class="main-buttons">
+    <label class="titulo-periodo" for="a">Raízes e Fundamentos<br>(1978 - 2003)</label>
+
+    <label class="titulo-periodo" for="b">Expansão e Consolidação<br>(2004 - 2020)</label>
+
+    <label class="titulo-periodo" for="c">Inovação e Tecnologia<br>(2021 - Hoje)</label>
+  </div>
+
+  <!-- Linha central entre botões e subgrupos; a bolinha é criada via CSS em .linha::before -->
+  <span class="linha"></span>
+
+  <!-- Subgrupo A -->
+  <div class="subgroup-a">
+    <label class="titulo-ano" for="a1978">1978</label>
+    <label class="titulo-ano" for="a1980">1980</label>
+    <label class="titulo-ano" for="a1998">1998</label>
+    <label class="titulo-ano" for="a2000">2000</label>
+    <label class="titulo-ano" for="a2001">2001</label>
+    <label class="titulo-ano" for="a2003">2003</label>
+  </div>
+
+  <!-- Subgrupo B -->
+  <div class="subgroup-b">
+    <label class="titulo-ano" for="b2014">2014</label>
+    <label class="titulo-ano" for="b2018">2018</label>
+  </div>
+
+  <!-- Subgrupo C -->
+  <div class="subgroup-c">
+    <label class="titulo-ano" for="c2021">2021</label>
+    <label class="titulo-ano" for="c2023">2023</label>
+    <label class="titulo-ano" for="c2024">2024</label>
+    <label class="titulo-ano" for="c2025">2025</label>
+  </div>
+
+  <!-- Coluna de conteúdos (separada dos subgrupos) -->
+  <div class="contents">
+    <div class="conteudo" data-group="a">
+      <div class="content" id="content-a1978">
+        <p class="text-conteudo">Foi neste ano que tudo começou. 
+Adair Dutra, com sua experiência em vendas e profundo senso de responsabilidade, iniciou as atividades  como representante comercial de equipamentos de segurança.</p><img src="/images/img-1978.png">
+      </div>
+      <div class="content" id="content-a1980">
+        <p class="text-conteudo">Com crescimento consistente e credibilidade no mercado, nasce oficialmente a<strong> Racco Comércio e Representações Ltda</strong>, já com foco no atendimento técnico e consultivo a empresas da indústria pesada. Esse passo representou a transformação de uma atuação individual em uma estrutura empresarial sólida.</p><img src="/images/img-1980.png">
+      </div>
+      <div class="content" id="content-a1998">
+        <p class="text-conteudo">A empresa estabelece sua primeira grande <strong>parceria internacional</strong>, com a norte-americana <strong>Pelican Products</strong>, referência mundial em lanternas profissionais e cases de proteção. Isso ampliou o portfólio da Racco e fortaleceu seu posicionamento como fornecedora de soluções confiáveis para ambientes extremos.</p><img src="/images/img-1998.png">
+      </div>
+      <div class="content" id="content-a2000">
+         <p class="text-conteudo">A solidez do trabalho e a dedicação da família Dutra resultam na conquista de uma <strong>sede própria, em Belo Horizonte, MG.</strong> O espaço se tornou símbolo do compromisso com o crescimento sustentável e a valorização de relações de confiança com clientes, fornecedores e colaboradores.</p><img src="/images/img-2000.png">
+      </div>
+      <div class="content" id="content-a2001">
+        <p class="text-conteudo">Com espírito visionário e paixão pelo conhecimento, Adair cria o <strong>Infoseg</strong>, um informativo técnico digital pioneiro que alcançou <strong>mais de 20 mil leitores</strong>. O objetivo era simples, mas grandioso: levar conteúdo técnico de qualidade sobre segurança do trabalho ao maior número possível de profissionais.</p><img src="/images/img-2001.png">
+      </div>
+      <div class="content" id="content-a2003">
+        <p class="text-conteudo">Após uma batalha contra o câncer, Adair Dutra falece, deixando um legado humano e profissional imensurável. Sua esposa, Maria Antônia, e os filhos, Fernando, Paula e Leonardo, assumem a continuidade da empresa, determinados a manter vivos os valores que o fundador cultivou com tanta dedicação.</p><img src="/images/img-2003.png">
+      </div>
+    </div>
+
+    <div class="conteudo" data-group="b">
+      <div class="content" id="content-b2014">
+        <p class="text-conteudo">Com a transição de liderança consolidada, <strong>Fernando</strong>, <strong>Leonardo</strong> e <strong>Paula Dutra</strong> assumem a gestão executiva do grupo, trazendo uma nova visão de futuro. <br><br>Iniciam um processo de modernização da estrutura, ampliação do portfólio e reestruturação estratégica da atuação no mercado nacional.</p><img src="/images/img-2014.png">
+      </div>
+      <div class="content" id="content-b2018">
+        <p class="text-conteudo">Lançamento da marca própria <strong>RacLite</strong>, focada em soluções de iluminação portátil profissional para áreas críticas, o grupo também firma <strong>novas parcerias internacionais estratégicas</strong>: com a <strong>NightSearcher (Reino Unido)</strong>, referência em lanternas de alto desempenho, e com a <strong>B&W Cases (Alemanha)</strong>, especializada em cases de proteção ultrarresistentes.<br><br>Nesse mesmo ano, é inaugurada a primeira filial internacional em Miami, EUA, marcando o início da presença global do grupo.</p><img src="/images/img-2018.png">
+      </div>
+    </div>
+
+    <div class="conteudo" data-group="c">
+      <div class="content" id="content-c2021">
+        <p class="text-conteudo">Nasce a <strong>MSE, Mobile Solution Expert,</strong> inicialmente focada em soluções móveis de energia solar. A proposta era ousada: substituir geradores a diesel por tecnologia limpa, autônoma e altamente resistente. A MSE inaugura uma nova fase de inovação no grupo, com foco em modularidade e robustecimento técnico.</p><img src="/images/img-2021.png">
+      </div>
+      <div class="content" id="content-c2023">
+        <p class="text-conteudo">A MSE amplia sua atuação com sistemas de comunicação via satélite e projetos personalizados para clientes que operam em locais remotos e de difícil acesso. Com foco em mobilidade, conectividade e automação, a MSE se consolida como um hub de inovação dentro do Grupo Racco.</p><img src="/images/img-2023.png">
+      </div>
+      <div class="content" id="content-c2024">
+        <p class="text-conteudo">O grupo firma uma parceria com a <strong>Telespazio</strong>, desenvolvendo o <strong>Veloce</strong>, um terminal de comunicação via satélite com tecnologia embarcada e proteção IP67.</p><img src="/images/img-2024.png">
+      </div>
+      <div class="content" id="content-c2025">
+        <p class="text-conteudo">Com a demanda crescente por conectividade e automação em campo, a RacTec é consolidada como a divisão de tecnologia do Grupo Racco. Focada em IoT industrial, rastreabilidade e integração com plataformas de gestão, a RacTec leva inovação para operações que exigem visibilidade, controle e inteligência em tempo real.</p><img class="ractecsvg" src="/images/img-2025.svg">
+      </div>
+    </div>
+  </div>
+   </section>
+</body>
+</html>
